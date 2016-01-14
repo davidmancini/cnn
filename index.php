@@ -21,8 +21,6 @@
 				Family Status: Married<br><br>
 			<span class="boxheading">Website Goals</span><br>
 				Jacob wants to quickly find and read relevant news and view associated media.<br>
-
-
 		</div><br>
 
 		<!-- USE CASES -->
@@ -38,5 +36,10 @@
 				</ol>
 		</div>
 
+		<!-- ERG -->
+		<div class="boxtitle">Entity Relationship Diagram</div>
+		<div class="box">
+			<img src="images/cnn-erg.svg" alt="Entity Relationship Diagram for CNN Project">
+		</div>
 	</body>
 </html>
