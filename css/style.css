@@ -1,0 +1,38 @@
+/****************************
+*Style Sheet for CNN Project*
+****************************/
+
+body {
+
+	color: dodgerblue;
+	background-color: #ffefce;
+}
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+h1,
+.boxtitle {
+	color: darkblue;
+}
+.center {
+	text-align: center;
+}
+
+.boxtitle {
+	font-family: 'Raleway', sans-serif;
+}
+
+.box {
+	padding: 0 5%;
+	background-color: cadetblue;
+	color: white;
+	font-family: 'News Cycle', sans-serif;
+}
+
+.box,
+.boxtitle {
+	margin: 0 10% 0;
+}
