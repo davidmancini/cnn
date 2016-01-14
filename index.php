@@ -13,7 +13,7 @@
 		<div class="boxtitle">Persona</div>
 		<div class="box">
 			Box
-		</div>
+		</div><br>
 
 		<!-- USE CASES -->
 		<div class="boxtitle">Use Cases</div>
