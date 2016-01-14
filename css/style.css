@@ -3,13 +3,11 @@
 ****************************/
 
 body {
-
-	color: dodgerblue;
 	background-color: #ffefce;
 }
 
 h1 {
-	font-family: 'Raleway', sans-serif;
+	font-family: "American Typewriter", sans-serif;
 	text-align: center;
 }
 
@@ -27,7 +25,7 @@ h1,
 
 .box {
 	padding: 0 5%;
-	background-color: cadetblue;
+	background-color: #4c86a0;
 	color: white;
 	font-family: 'News Cycle', sans-serif;
 }
@@ -36,3 +34,5 @@ h1,
 .boxtitle {
 	margin: 0 10% 0;
 }
+
+/* 	cool color: dodger blue */
