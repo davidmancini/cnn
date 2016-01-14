@@ -15,12 +15,13 @@ h1,
 .boxtitle {
 	color: darkblue;
 }
-.center {
-	text-align: center;
-}
 
 .boxtitle {
-	font-family: 'Raleway', sans-serif;
+	font: 1.5em 'Raleway', sans-serif;
+}
+
+.boxheading {
+	font: 1.4em "News Cycle", sans-serif;
 }
 
 .box {
