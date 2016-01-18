@@ -39,6 +39,7 @@
 		<!-- ERG -->
 		<div class="boxtitle">Entity Relationship Diagram</div>
 		<div class="box">
+			<p>An author writes an article and includes some media (photos, videos, etc.) so that a reader can view everything in one place.</p>
 			<img src="images/cnn-erg.svg" alt="Entity Relationship Diagram for CNN Project">
 		</div>
 	</body>
