@@ -36,4 +36,7 @@ h1,
 	margin: 0 10% 0;
 }
 
+.monospace {
+	font-family: "Courier New", Courier, monospace;
+}
 /* 	cool color: dodger blue */
