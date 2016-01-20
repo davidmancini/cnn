@@ -27,11 +27,11 @@
 		<div class="boxtitle">Use Cases</div>
 		<div class="box">
 			<span class="boxheading">Main Goal</span><br>
-				A visitor comes to the news article page to read a news story and view associated media.  The visitor should also be able to identify the author and the date and time that the article was published.<br><br>
+				The author logs in and creates a new article, with media, for visitors to read.  The system automatically logs when the article is published, and displays if/when it was updated.<br><br>A visitor comes to the news article page to read a news story and view associated media.  The visitor should also be able to identify the author and the date and time that the article was published and/or updated.<br><br>
 			<span class="boxheading">Steps</span>
 				<ol>
 					<li>The author must log into the system, so his <span class="monospace">authorId</span> can be associated with the article.</li>
-					<li>The author adds copy and associates some media.  The <span class="monospace">articleId</span> will be associated with the mediaId and authorId in the database.</li>
+					<li>The author adds copy and associates some media.  The <span class="monospace">articleId</span> will be associated with the <span class="monospace">mediaId</span> and <span class="monospace">authorId</span> in the database.</li>
 					<li>Now that the article is published, a viewer can visit the site to read the article and view the media.</li>
 				</ol>
 		</div>
