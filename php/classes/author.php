@@ -77,6 +77,7 @@ class Author {
 	 *
 	 * @param string $newEmail new value of email
 	 * @throws InvalidArgumentException if email is not a valid email address
+	 * @throws RangeException if email will not fit in the database
 	 */
 	public function setEmail($newEmail) {
 		$newEmail = filter_var($newEmail, FILTER_VALIDATE_EMAIL);
@@ -85,6 +86,12 @@ class Author {
 		if($newEmail === false) {
 			throw (new InvalidArgumentException("email is not a valid email"));
 		}
+
+		//Exception if email will not fit in the database
+		if(strlen($newEmail) > 128 ) {
+			throw(new RangeException("email address is too large"));
+		}
+
 		//If input is a valid email address, save the value
 		$this->email = $newEmail;
 	}
@@ -103,6 +110,7 @@ class Author {
 	 *
 	 * @param string $newName new value of name
 	 * @throws InvalidArgumentException if name is only non-sanitized sting data
+	 * @throws RangeException if name will not fit in the database
 	 */
 	public function setName($newName) {
 		$newName = filter_var($newName, FILTER_SANITIZE_STRING);
@@ -110,6 +118,11 @@ class Author {
 		//Exception if input is only non-sanitized string data
 		if($newName === false) {
 			throw (new InvalidArgumentException("name is not a valid string"));
+		}
+
+		//Exception if input will not fit in the database
+		if(strlen($newName) > 128) {
+			throw (new RangeException("name is too large"));
 		}
 
 		//If input is a valid string, save the value
@@ -129,6 +142,7 @@ class Author {
 	 * Mutator method for title
 	 *
 	 * @throws InvalidArgumentException if title is only non-standardized string data
+	 * @throws RangeException if name will not fit in the database
 	 */
 	public function setTitle($newTitle) {
 		$newTitle = filter_var($newTitle, FILTER_SANITIZE_STRING);
@@ -136,6 +150,11 @@ class Author {
 		//Exception if input is only non-sanitized string data
 		if($newTitle === false) {
 			throw (new InvalidArgumentException("title is not a valid string"));
+		}
+
+		//Exception if input will not fit in the database
+		if(strlen($newTitle) > 128) {
+			throw(new RangeException("title is too large"));
 		}
 
 		//If input is a vals string, save the value
