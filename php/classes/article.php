@@ -86,6 +86,150 @@ class Article {
 		$this->articleId = $newArticleId;
 	}
 
+	/*
+	 * Accessor method for author id
+	 * @return int value of author id
+	 */
+	public function getAuthorId() {
+		return $this->authorId;
+	}
+
+	/*
+	 * Mutator for author id
+	 * @param int $newAuthorId new value of author id
+	 * @throws InvalidArgumentException if author id is not an integer
+	 * @throws RangeException if author id is negative
+	 */
+	public function setAuthorId($newAuthorId) {
+		$newAuthorId = filter_var($newAuthorId, FILTER_VALIDATE_INT);
+
+		//Exception if author id is not an integer
+		if($newAuthorId === false) {
+			throw (new InvalidArgumentException("author id is not an integer"));
+		}
+
+		//Exception if author id is negative
+		if($newAuthorId <= 0) {
+			throw (new RangeException("author id must be positive"));
+		}
+
+		//If author id input passes the above tests (therefore, it is a positive integer), it is considered valid, so it is saved as the author id
+		$this->authorId = $newAuthorId;
+	}
+
+	/*
+	 * Accessor method for title
+	 * @return string of title
+	 */
+	public function getTitle(){
+		return $this->title;
+	}
+
+	/*
+	 * Mutator method for title
+	 * @param string $newTitle new value of title
+	 * @throws InvalidArgumentException if title is only non-sanitized values
+	 * @throws RangeException if title will not fit in the database
+	 */
+	public function setTitle($newTitle){
+		$newTitle = filter_var($newTitle,FILTER_SANITIZE_STRING);
+
+		//Exception if only non-sanitized values
+		if($newTitle === false){
+			throw(new InvalidArgumentException("title is not a valid string"));
+		}
+
+		//Exception if input will not fit in the database
+		if(strlen($newTitle) > 128){
+			throw(new RangeException("title is too large"));
+		}
+
+		//save the input
+		$this->title = $newTitle;
+	}
+
+	/*
+	 * Accessor method for description
+	 * @return string of description
+	 */
+	public function getDescription(){
+		return $this->description;
+	}
+
+	/*
+	 * Mutator method for description
+	 * @param sting $newDescription new value of description
+	 * @throws InvalidArgumentException if description is only non-sanitized values
+	 * @throws RangeException if description will not fit in the database
+	 */
+	public function setDescription($newDescription){
+		$newDescription = filter_var($newDescription,FILTER_VALIDATE_INT);
+
+		//Exception if only non-sanitized values
+		if($newDescription === false){
+			throw(new InvalidArgumentException("description is not a valid string"));
+		}
+
+		//Exception if input will not fit in the database
+		if(strlen($newDescription) > 500){
+			throw(new RangeException("description is too large"));
+		}
+
+		//save the input
+		$this->description = $newDescription;
+	}
+
+	/*
+ * Accessor method for copy
+ * @return string of copy
+ */
+	public function getCopy(){
+		return $this->copy;
+	}
+
+	/*
+	 * Mutator method for copy
+	 * @param sting $newCopy new value of copy
+	 * @throws InvalidArgumentException if copy is only non-sanitized values
+	 * @throws RangeException if copy will not fit in the database
+	 */
+	public function setCopy($newCopy){
+		$newCopy = filter_var($newCopy,FILTER_VALIDATE_INT);
+
+		//Exception if only non-sanitized values
+		if($newCopy === false){
+			throw(new InvalidArgumentException("copy is not a valid string"));
+		}
+
+		//Exception if input will not fit in the database
+		if(strlen($newCopy) > 10000){
+			throw(new RangeException("copy is too large"));
+		}
+
+		//save the input
+		$this->copy = $newCopy;
+	}
+
+	/*
+	 * Accessor method for published time
+	 * @return DateTime value of published time
+	 */
+	public function getPublishedTime() {
+		return $this->publishedTime;
+	}
+
+	/*
+	 * Mutator method for published time
+	 * @param mixed $newPublishedTime published time as a DateTime object or string
+	 * @throws InvalidArgumentException if $newPublishedTime is not a valid object or string
+	 * @throws RangeException if $newPublishedTime is a date that does not exist
+	 */
+	public function setPublishedTime($newPublishedTime){
+		if($newPublishedTime === null){
+		//https://bootcamp-coders.cnm.edu/class-materials/object-oriented/object-oriented-php.php
+		}
+	}
+
 
 
 

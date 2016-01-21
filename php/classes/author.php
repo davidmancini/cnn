@@ -52,7 +52,7 @@ class Author {
 
 		//Exception if author id is not an integer
 		if($newAuthorId === false) {
-			throw (new TypeError("author id is not an integer"));
+			throw (new InvalidArgumentException("author id is not an integer"));
 		}
 
 		//Exception if author id is negative
