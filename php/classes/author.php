@@ -8,6 +8,7 @@
  * @author David Mancini <mancini.david@gmail.com>
  */
 class Author {
+
 	/*
 	 * id is the primary key
 	 * @var int $authorId
