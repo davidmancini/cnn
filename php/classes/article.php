@@ -220,17 +220,61 @@ class Article {
 
 	/*
 	 * Mutator method for published time
-	 * @param mixed $newPublishedTime published time as a DateTime object or string
+	 * @param mixed $newPublishedTime published time as a DateTime object or string (or null to load current time)
 	 * @throws InvalidArgumentException if $newPublishedTime is not a valid object or string
 	 * @throws RangeException if $newPublishedTime is a date that does not exist
 	 */
 	public function setPublishedTime($newPublishedTime){
+		//if date is null, use current time and date
 		if($newPublishedTime === null){
-		//https://bootcamp-coders.cnm.edu/class-materials/object-oriented/object-oriented-php.php
+			$this->publishedTime = new DateTime();
+			return;
 		}
+
+		//store the date
+		try {
+			$newPublishedTime = validateDate($newPublishedTime);
+		} catch (InvalidArgumentException $invalidArgument) {
+			throw (new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $range) {
+			throw (new RangeException($range->getMessage(), 0, $range));
+		} catch (Exception $exception) {
+			throw (new Exception($exception->getMessage(), 0, $exception));
+		}
+		$this->publishedTime = $newPublishedTime;
 	}
 
+	/*
+	 * Accessor method for updated time
+	 * @return DateTime value of updated time
+	 */
+	public function getUpdatedTime() {
+		return $this->updatedTime;
+	}
 
+	/*
+	 * Mutator method for updated time
+	 * @param mixed $newUpdatedTime last saved time as a DateTime object or string (or null to load current time)
+	 * @throws InvalidArgumentException if $newUpdatedTime is not a valid object or string
+	 * @throws RangeException if $newUpdatedTime is a date that does not exist
+	 */
+	public function setUpdatedTime($newUpdatedTime){
+		//if date is null, use current time and date
+		if($newUpdatedTime === null){
+			$this->updatedTime = new DateTime();
+			return;
+		}
 
-
+		//store the date
+		try {
+			$newUpdatedTime = validateDate($newUpdatedTime);
+		} catch (InvalidArgumentException $invalidArgument) {
+			throw (new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $range) {
+			throw (new RangeException($range->getMessage(), 0, $range));
+		} catch (Exception $exception) {
+			throw (new Exception($exception->getMessage(), 0, $exception));
+		}
+		$this->updatedTime = $newUpdatedTime;
+	}
 }
