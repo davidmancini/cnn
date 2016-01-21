@@ -45,3 +45,27 @@ function validateDate($newDate) {
 	$newDate = DateTime::createFromFormat("Y-m-d H:i:s", $newDate);
 	return($newDate);
 }
+
+/*
+* Example use of the above:
+*
+public function setUpdatedTime($newUpdatedTime){
+//if date is null, use current time and date
+if($newUpdatedTime === null){
+	$this->updatedTime = new DateTime();
+	return;
+}
+
+//Catch exceptions and display correct error (refers to validate-date.php) and if no exceptions, save the new time.
+try {
+	$newUpdatedTime = validateDate($newUpdatedTime);
+} catch (InvalidArgumentException $invalidArgument) {
+	throw (new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+} catch (RangeException $range) {
+	throw (new RangeException($range->getMessage(), 0, $range));
+} catch (Exception $exception) {
+	throw (new Exception($exception->getMessage(), 0, $exception));
+}
+$this->updatedTime = $newUpdatedTime;
+	}
+ */
