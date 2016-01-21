@@ -46,14 +46,18 @@ class Author {
 	 */
 	public function setAuthorId($newAuthorId) {
 		$newAuthorId = filter_var($newAuthorId, FILTER_VALIDATE_INT);
+
+		//Exception if author id is not an integer
 		if($newAuthorId === false) {
 			throw (new InvalidArgumentException("author id is not an integer"));
 		}
 
+		//Exception if author id is negative
 		if($newAuthorId <= 0) {
 			throw (new RangeException("author id must be positive"));
 		}
 
+		//if author id input passes the above tests (therefore, it is a positive integer), it is considered valid, so it is saved as the author id
 		$this->authorId = $newAuthorId;
 	}
 }
