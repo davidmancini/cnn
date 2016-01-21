@@ -78,14 +78,14 @@ class Author {
 	 * @param string $newEmail new value of email
 	 * @throws InvalidArgumentException if email is not a valid email address
 	 */
-	public function setEmail($newEmail){
+	public function setEmail($newEmail) {
 		$newEmail = filter_var($newEmail, FILTER_VALIDATE_EMAIL);
 
 		//Exception if not a valid email address
 		if($newEmail === false) {
-			throw (new InvalidArgumentException("email is not a vaild email"));
+			throw (new InvalidArgumentException("email is not a valid email"));
 		}
-		//If input is a vaild email address, save the value
+		//If input is a valid email address, save the value
 		$this->email = $newEmail;
 	}
 
@@ -104,7 +104,7 @@ class Author {
 	 * @param string $newName new value of name
 	 * @throws InvalidArgumentException if name is only non-sanitized sting data
 	 */
-	public function setName ($newName) {
+	public function setName($newName) {
 		$newName = filter_var($newName, FILTER_SANITIZE_STRING);
 
 		//Exception if input is only non-sanitized string data
