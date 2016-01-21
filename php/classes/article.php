@@ -231,7 +231,7 @@ class Article {
 			return;
 		}
 
-		//store the date
+		//Catch exceptions and display correct error (refers to validate-date.php) and if no exceptions, save the new time.
 		try {
 			$newPublishedTime = validateDate($newPublishedTime);
 		} catch (InvalidArgumentException $invalidArgument) {
@@ -265,7 +265,7 @@ class Article {
 			return;
 		}
 
-		//store the date
+		//Catch exceptions and display correct error (refers to validate-date.php) and if no exceptions, save the new time.
 		try {
 			$newUpdatedTime = validateDate($newUpdatedTime);
 		} catch (InvalidArgumentException $invalidArgument) {
