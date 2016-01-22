@@ -102,6 +102,10 @@ class Article {
 	 * @throws RangeException if article id is negative
 	 */
 	public function setArticleId($newArticleId) {
+		if($newArticleId === null) {
+			$this->articleId = null;
+			return;
+		}
 
 		//filter
 		$newArticleId = filter_var($newArticleId,FILTER_VALIDATE_INT);

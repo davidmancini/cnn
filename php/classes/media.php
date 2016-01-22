@@ -73,6 +73,10 @@ class Media {
 	 * @throws RangeException if media id is negative
 	 */
 	public function setMediaId($newMediaId) {
+		if($newMediaId === null){
+			$this->mediaId = null;
+			return;
+		}
 
 		//filter
 		$newMediaId = filter_var($newMediaId, FILTER_VALIDATE_INT);

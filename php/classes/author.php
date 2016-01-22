@@ -69,11 +69,16 @@ class Author {
 
 	/*
 	 * Mutator for author id
-	 * @param int $newAuthorId new value of author id
+	 * @param int $newAuthorId new value of author id or null if new author id
 	 * @throws InvalidArgumentException if author id is not an integer
 	 * @throws RangeException if author id is negative
 	 */
 	public function setAuthorId($newAuthorId) {
+		if($newAuthorId === null){
+			$this->authorId = null;
+			return;
+		}
+
 		$newAuthorId = filter_var($newAuthorId, FILTER_VALIDATE_INT);
 
 		//Exception if author id is not an integer
