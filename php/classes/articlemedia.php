@@ -21,6 +21,28 @@ class ArticleMedia {
 	private $mediaId;
 
 	/*
+	 * Constructor for articlemedia
+	 *
+	 * @param int $newArticleId foreign key from Article
+	 * @param int $newMediaId foreign key from Media
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds
+	 * @throws Exception if other exception is thrown
+	 */
+	public function __construct($newArticleId, $newMediaId) {
+		try {
+			$this->setArticleId($newArticleId);
+			$this->setMediaId($newMediaId);
+		} catch (InvalidArgumentException $invalidArgument) {
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $rangeException) {
+			throw(new RangeException($rangeException->getMessage(), 0, $rangeException));
+		} catch (Exception $exception) {
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/*
 	 * Accessor method for article id
 	 * @return int value of article id
 	 */

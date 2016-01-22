@@ -54,6 +54,40 @@ class Article {
 	private $updatedTime;
 
 	/*
+	 * Constructor for Article
+	 *
+	 * @param mixed $newArticleId of the article or null if new article
+	 * @param int $newAuthorId foreign key from Author
+	 * @param string $newTitle string containing article title
+	 * @param string $newDescription string containing article description
+	 * @param string $newCopy string containing content (copy) of the article
+	 * @param mixed $newPublishedTime date and time the article was first saved or null if set to current time and date
+	 * @param mixed $newUpdatedTime date and time the article was last saved or null if set to current time and date
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds (strings too long, negative numbers)
+	 * @throws InvalidArgumentException if the date is in an invalid format
+	 * @throws RangeException if the date is not a Gregorian date
+	 * @throws Exception if other exception is thrown
+	 */
+	public function __construct($newArticleId, $newAuthorId, $newTitle, $newDescription, $newCopy, $newPublishedTime, $newUpdatedTime) {
+		try {
+			$this->setArticleId($newArticleId);
+			$this->setAuthorId($newAuthorId);
+			$this->setTitle($newTitle);
+			$this->setDescription($newDescription);
+			$this->setCopy($newCopy);
+			$this->setPublishedTime($newPublishedTime);
+			$this->setUpdatedTime($newPublishedTime);
+			} catch (InvalidArgumentException $invalidArgument) {
+				throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+			} catch (RangeException $range) {
+				throw(new RangeException($range->getMessage(), 0, $range));
+			} catch (Exception $exception) {
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/*
 	 * Accessor method for article id
 	 * @return int value of article id
 	 */

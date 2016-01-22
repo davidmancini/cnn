@@ -34,6 +34,32 @@ class Author {
 	private $title;
 
 	/*
+	 * Constructor for Author
+	 *
+	 * @param mixed $newAuthorId id of the author or null if new author
+	 * @param string $newEmail string containing email
+	 * @param string $newName string containing name
+	 * @param string $newTitle string containing author's title
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds (strings too long, negative numbers)
+	 * @throws Exception if other exception is thrown
+	 */
+	public function __construct($newAuthorId, $newEmail, $newName, $newTitle) {
+		try {
+			$this->setAuthorId($newAuthorId);
+			$this->setEmail($newEmail);
+			$this->setName($newName);
+			$this->setTitle($newTitle);
+		} catch (InvalidArgumentException $invalidArgument) {
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $range) {
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch (Exception $exception) {
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/*
 	 * Accessor method for author id
 	 * @return int value of author id
 	 */

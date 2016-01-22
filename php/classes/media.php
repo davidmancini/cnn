@@ -34,6 +34,32 @@ class Media {
 	private $url;
 
 	/*
+	 * Constructor for Media
+	 *
+	 * @param mixed $newMediaId id of the media or null if new media
+	 * @param string $newCaption caption of the media
+	 * @param string $newTitle title of the media
+	 * @param string $newUrl location of the media
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds (strings too long, negative numbers)
+	 * @throws Exception if other exception is thrown
+	 */
+	public function __construct($newMediaId, $newCaption, $newTitle, $newUrl) {
+		try {
+			$this->setMediaId($newMediaId);
+			$this->setCaption($newCaption);
+			$this->setTitle($newTitle);
+			$this->setUrl($newUrl);
+		} catch (InvalidArgumentException $invalidArgument) {
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $range) {
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch (Exception $exception) {
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/*
 	 * Accessor method for media id
 	 * @return int value of media id
 	 */
