@@ -1,4 +1,5 @@
 <?php
+namespace Edu\Cnm\Dmancini1\Cnn;
 /*
  * Author is the apex entity to write articles.
  *

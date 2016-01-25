@@ -1,4 +1,6 @@
 <?php
+namespace Edu\Cnm\Dmancini1\Cnn;
+
 require_once(dirname(__DIR__) . "/lib/validate-date.php");
 
 /*
