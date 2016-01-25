@@ -107,4 +107,6 @@ class ArticleMedia {
 		$this->mediaId = $newMediaId;
 	}
 
+	//need insert, update, and delete
+	//ensure this is all correct....set composite keys
 }
