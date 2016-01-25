@@ -1,5 +1,5 @@
 <?php
-namespace Edu\Cnm\Dmancini1\Cnn;
+//namespace Edu\Cnm\Dmancini1\Cnn;
 
 require_once(dirname(__DIR__) . "/lib/validate-date.php");
 
@@ -78,23 +78,6 @@ class Article {
 	 * @throws RangeException if the date is not a Gregorian date
 	 * @throws Exception if other exception is thrown
 	 */
-//	public function __construct($newArticleId, $newAuthorId, $newTitle, $newDescription, $newCopy, $newPublishedTime, $newUpdatedTime) {
-//		try {
-//			$this->setArticleId($newArticleId);
-//			$this->setAuthorId($newAuthorId);
-//			$this->setTitle($newTitle);
-//			$this->setDescription($newDescription);
-//			$this->setCopy($newCopy);
-//			$this->setPublishedTime($newPublishedTime);
-//			$this->setUpdatedTime($newPublishedTime);
-//		} catch(InvalidArgumentException $invalidArgument) {
-//			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
-//		} catch(RangeException $range) {
-//			throw(new RangeException($range->getMessage(), 0, $range));
-//		} catch(Exception $exception) {
-//			throw(new Exception($exception->getMessage(), 0, $exception));
-//		}
-//	}
 	public function __construct($newArticleId, $newAuthorId, $newTitle, $newDescription, $newCopy) {
 		try {
 			$this->setArticleId($newArticleId);
