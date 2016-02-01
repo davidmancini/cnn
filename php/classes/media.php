@@ -188,4 +188,7 @@ class Media {
 		//save the input
 		$this->url = $newUrl;
 	}
+
+	//need insert update delete
+	//need public static
 }

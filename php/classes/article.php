@@ -3,6 +3,11 @@
 
 require_once(dirname(__DIR__) . "/lib/validate-date.php");
 
+require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
+$pdo = connectToEncryptedMySQL("/etc/apache2/data-design/dmancini1.ini");
+
+//LOCAL DEVELOPMENT Connection
+//$pdo = new PDO('mysql:host=localhost;dbname=dmancini1', 'dmancini1', 'password');
 /*
  * Article
  *
@@ -12,11 +17,7 @@ require_once(dirname(__DIR__) . "/lib/validate-date.php");
  * @author David Mancini <mancini.david@gmail.com>
  */
 //Secure and Encrypted PDO Database Connection
-require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
-$pdo = connectToEncryptedMySQL("/etc/apache2/data-design/dmancini1.ini");
 
-//LOCAL DEVELOPMENT Connection
-//$pdo = new PDO('mysql:host=localhost;dbname=dmancini1', 'dmancini1', 'password');
 
 class Article {
 
@@ -384,4 +385,6 @@ class Article {
 		$parameters = array("articleId" => $this->authorId);
 		$statement->execute($parameters);
 	}
+
+	//public static
 }
